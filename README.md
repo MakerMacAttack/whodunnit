@@ -61,17 +61,17 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 - Mobile Home
 
-![Dummy Link](url)
+![Mobile Login](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/Login%20-%20Mobile.png)
 
-- Desktop Hero
+- Mobile Login
 
-![Dummy Link](url)
+![Mobile Create User](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/CreateUser%20-%20Mobile.png)
 
-- Resource Index
+- Mobile Create User
 
-![Dummy Link](url)
+![Mobile Instructions](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/Instructions%20-%20Mobile.png)
 
-- Resource Show
+- Mobile Instructions (Modal)
 
 ![Dummy Link](url)
 
