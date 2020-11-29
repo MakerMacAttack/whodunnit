@@ -57,11 +57,9 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
+![Mobile Home](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/Home%20-%20Mobile.png)
 
-![Dummy Link](url)
-
-- Desktop Landing
+- Mobile Home
 
 ![Dummy Link](url)
 
