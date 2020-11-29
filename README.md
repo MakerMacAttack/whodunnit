@@ -45,11 +45,11 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | A JavaScript library for building user interfaces |
+|   React Router   | A tool that allows you to handle routes in a web app, using dynamic routing. |
+| React SemanticUI | The official React integration for Semantic UI. |
+|     Express      | Fast, unopinionated, minimalist web framework for Node.js |
+|  Express Router  | A class which helps us to create router handlers. |
 
 <br>
 
@@ -89,19 +89,39 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
 
 src
 |__ assets/
       |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
 |__ components/
-      |__ Header.jsx
+      |__ NavBar
+      |__ Footer
+      |__ Register
+      |__ Instructions
+      |__ Investigate
+      |__ Notebook
+      |__ Interview
+      |__ Suspect
+      |__ Alibi
+      |__ Accuse
+|__ screens/
+      |__ Home
+      |__ Login
+      |__ AccountCreate
+      |__ Forensics
+      |__ Notes
+      |__ Suspects
+      |__ SuspectDetail
+      |__ Win
+      |__ Lose
 |__ services/
+      |__ users
+      |__ notes
+      |__ suspects
+      |__ alibis
+      |__ weapons
 
 ```
 
