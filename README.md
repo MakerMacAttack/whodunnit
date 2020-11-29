@@ -18,14 +18,14 @@
 
 ## Overview
 
-_**Whodunnit** is a simple mystery game. Users will reveal clues and use them to solve the crime. The backend contains the clues, suspects, alibis, and weapons, and runs on Ruby on Rails, hosted by Heroku. The front end is a react app hosted on Netlify. 
+**Whodunnit** is a simple mystery game. Users will reveal clues and use them to solve the crime. The backend contains the clues, suspects, alibis, and weapons, and runs on Ruby on Rails, hosted by Heroku. The front end is a react app hosted on Netlify. 
 
 
 <br>
 
 ## MVP
 
-_The **Whodunnit** MVP is a simple game where the user has a list of suspects and some information about each one, uncovers clues, and determines which of the suspects is the murderer._
+The **Whodunnit** MVP is a simple game where the user has a list of suspects and some information about each one, uncovers clues, and determines which of the suspects is the murderer.
 
 <br>
 
@@ -129,6 +129,7 @@ src
 
 #### ERD Model
 
+![ERD Model](https://i.imgur.com/PVIZTER.png)
 > Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
 <br>
