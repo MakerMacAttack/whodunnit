@@ -1,0 +1,2 @@
+class Alibi < ApplicationRecord
+end
