@@ -106,13 +106,13 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 - Mobile Lose
 
-![Tablet Suspect List](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Lose%20-%20Mobile.png)
+![Tablet Suspect List](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Suspect%20List%20-%20Tablet.png)
 
 - Tablet Suspect List
 
 #### Component Tree
 
-![Component Tree](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Suspect%20List%20-%20Tablet.png) 
+![Component Tree](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/whodunnit%20component%20tree.png) 
 
 #### Component Hierarchy
 
