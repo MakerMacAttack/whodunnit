@@ -41,8 +41,6 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
 |      React       | A JavaScript library for building user interfaces |
@@ -153,8 +151,6 @@ src
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Schema              |    L     |     3 hrs      |     TBD       |     TBD     |
@@ -178,7 +174,6 @@ src
 #### ERD Model
 
 ![ERD Model](https://i.imgur.com/PVIZTER.png)
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
 <br>
 
