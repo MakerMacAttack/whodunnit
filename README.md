@@ -73,17 +73,45 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 - Mobile Instructions (Modal)
 
-![Dummy Link](url)
+![Forensics](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Forensics%20-%20Mobile.png)
 
-- Tablet Resource Index
+- Mobile Forensics
 
-![Dummy Link](url)
+![Mobile Forensics Reveal](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/ForensicsReveal%20-%20Mobile.png)
 
-- Mobile Resource Index
+- Mobile Forensics Reveal (Modal)
+
+![Mobile Notebook](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Notebook%20-%20Mobile.png)
+
+- Mobile Notebook
+
+![Mobile Note](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Note%20-%20Mobile.png)
+
+- Mobile Note
+
+![Mobile Suspect List](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/SuspectList%20-%20Mobile.png)
+
+- Mobile Suspect List
+
+![Mobile Suspect](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Suspect%20-%20Mobile.png)
+
+- Mobile Suspect
+
+![Mobile Alibi](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Alibi%20-%20Mobile.png)
+
+- Mobile Alibi (Modal)
+
+![Mobile Win](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Win%20-%20Mobile.png)
+
+- Mobile Win
+
+![Mobile Lose](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/wireframes/Lose%20-%20Mobile.png)
+
+- Mobile Lose
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+![Component Tree](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/whodunnit%20component%20tree.png) 
 
 #### Component Hierarchy
 
@@ -123,23 +151,25 @@ src
 
 ```
 
-#### Component Tree
-
-> Use this section to include a link to your component tree.
-
-[Component tree](url)
-
 #### Time Estimates
 
 > Use this section to estimate the time necessary to build out each of the components you've described above.
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Schema              |    L     |     3 hrs      |     TBD       |     TBD     |
+| Models              |    H     |     3 hrs      |     TBD       |     TBD     |
+| Controllers         |    H     |     6 hrs      |     TBD       |     TBD     |
+| Backend Services    |    L     |     3 hrs      |     TBD       |     TBD     |
+| Screens             |    H     |     3 hrs      |     TBD       |     TBD     |
+| Components          |    M     |     6 hrs      |     TBD       |     TBD     |
+| Routes              |    L     |     3 hrs      |     TBD       |     TBD     |
+| Create CRUD Actions |    H     |     3 hrs      |     TBD       |     TBD     |
+| Styling             |    L     |     6 hrs      |     TBD       |     TBD     |
+| Post-MVP            |    L     |     3 hrs      |     TBD       |     TBD     |
+| Advanced Styleing   |    H     |     3 hrs      |     TBD       |     TBD     |
+| TOTAL               |          |     42 hrs     |     TBD       |     TBD     |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -156,7 +186,7 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+Come up with some way for players to lose, like a time limit. Also some challenge before they get clues.
 
 ***
 
