@@ -31,11 +31,10 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- Ruby on Rails Backend to store the elements of a murder mystery and the current state of the detective's notebook
+- Easily-navigated front-end that allows user to pick up clues
+- Adaptable notebook to store clues received
+- Successful rendition of clues leading to win condition
 
 <br>
 
