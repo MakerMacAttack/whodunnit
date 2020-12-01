@@ -10,6 +10,16 @@ export const getOneSuspect = async (id) => {
   return resp.data;
 }
 
+export const getSuspectAlibi = async (suspectId) => {
+  const resp = await api.get(`/suspects/${suspectId}/alibis`);
+  return resp.data;
+}
+
+export const getSuspectWeapon = async (suspectId) => {
+  const resp = await api.get(`/suspects/${suspectId}/weapons`);
+  return resp.data;
+}
+
 export const postSuspect = async (suspectData) => {
   const resp = await api.post('/suspects', { suspect: suspectData });
   return resp.data;
