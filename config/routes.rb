@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
-  resources :suspects
+  resources :suspects do
+    resources :alibis
+    resources :weapons
+  end
   resources :alibis
   resources :weapons
   resources :notes

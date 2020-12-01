@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }
 
-  has_many :notes
+  has_many :notes, dependent: :destroy
 end

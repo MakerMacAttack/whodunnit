@@ -12,15 +12,15 @@ Suspect.destroy_all
 Weapon.destroy_all
 Alibi.destroy_all
 
-@admin = User.create(name: 'admin', password: '123456')
+@admin = User.create!(name: 'admin', password: '123456')
 
-Note.create(weapon_sharp: nil, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user_id: @admin)
+Note.create!(weapon_sharp: nil, weapon_large: nil, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user: @admin)
 
-@weapon = Weapon.create(name: 'dagger', sharp: true, large: false)
+@murderer = Suspect.create!(name: "Sir Kills-a-lot", dunnit: true)
 
-@alibi = Alibi.create(content: "I couldn't have killed him, I was busy sleeping with his wife.", valid: false)
+Weapon.create!(name: 'dagger', sharp: true, large: false, suspect: @murderer)
 
-@murderer = Suspect.create(name: "Sir Kills-a-lot", weapon_id: @weapon, alibi_id: @alibi, dunnit: true)
+Alibi.create!(content: "I couldn't have killed him, I was busy sleeping with his wife.", suspect: @murderer, airtight: false)
 
 puts "#{User.count} users created"
 puts "#{Note.count} notes created"

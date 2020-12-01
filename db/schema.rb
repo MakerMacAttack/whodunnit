@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_011617) do
 
   create_table "alibis", force: :cascade do |t|
     t.string "content"
-    t.boolean "valid"
+    t.bigint "suspect_id"
+    t.boolean "airtight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["suspect_id"], name: "index_alibis_on_suspect_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -41,28 +43,26 @@ ActiveRecord::Schema.define(version: 2020_12_01_011617) do
 
   create_table "suspects", force: :cascade do |t|
     t.string "name"
-    t.bigint "weapon_id"
-    t.bigint "alibi_id"
     t.boolean "dunnit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["alibi_id"], name: "index_suspects_on_alibi_id"
-    t.index ["weapon_id"], name: "index_suspects_on_weapon_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "weapons", force: :cascade do |t|
     t.string "name"
+    t.bigint "suspect_id"
     t.boolean "sharp"
     t.boolean "large"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["suspect_id"], name: "index_weapons_on_suspect_id"
   end
 
 end
