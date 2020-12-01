@@ -4,7 +4,7 @@ import NavBar from "./../shared/NavBar/NavBar";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
 import Home from "./../../screens/Home/Home";
-import Login from "./../../screens/Login/Login";
+import Login from "./../../screens/LogIn/Login";
 import Lose from "./../../screens/Lose/Lose";
 import Notebook from "./../../screens/Notebook/Notebook";
 import NoteDetail from "./../../screens/NoteDetail/NoteDetail";
