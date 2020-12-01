@@ -2,5 +2,9 @@ import React from "react";
 import "./Forensics.css";
 
 export default function Forensics(props) {
-  return <div></div>;
+  return (
+    <div>
+      <h1>look forensics</h1>
+    </div>
+  );
 }
