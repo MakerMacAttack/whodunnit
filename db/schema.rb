@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_173657) do
+ActiveRecord::Schema.define(version: 2020_12_01_011617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_173657) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.string "name"
     t.boolean "weapon_sharp"
     t.boolean "weapon_large"
     t.boolean "suspect1_clear"
