@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import useModal from "../../services/useModal";
+import Instructions from "../../components/Instructions/Instructions";
 import NavBar from "./../shared/NavBar/NavBar";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -15,10 +17,12 @@ import Win from "./../../screens/Win/Win";
 import "./Main.css";
 
 export default function Main(props) {
+  const { isShowing, toggle } = useModal;
   return (
     <div>
-      <NavBar />
+      <NavBar toggle={toggle} />
       <body>
+        <Instructions isShowing={isShowing} hide={toggle} />
         <Switch>
           <Route path="/signup">
             <SignUp />
