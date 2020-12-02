@@ -10,7 +10,7 @@ class SuspectsController < ApplicationController
 
   # GET /suspects/1
   def show
-    render json: @suspect
+    render json: @suspect, include: [:weapon, :alibi]
   end
 
   # POST /suspects
