@@ -7,7 +7,7 @@ export default function Home(props) {
 
   return (
     <div id="home">
-      <button onClick={() => history.push("/forensics")}>Investigate</button>
+      <button onClick={() => history.push("/forensics")}>Inspect</button>
       <button onClick={() => history.push("/suspects")}>Interview</button>
     </div>
   );
