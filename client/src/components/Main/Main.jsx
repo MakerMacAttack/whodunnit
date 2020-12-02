@@ -17,12 +17,12 @@ import Win from "./../../screens/Win/Win";
 import "./Main.css";
 
 export default function Main(props) {
-  const { isShowing, toggle } = useModal;
+  const { instructionsShowing, toggle } = useModal();
   return (
     <div>
       <NavBar toggle={toggle} />
       <body>
-        <Instructions isShowing={isShowing} hide={toggle} />
+        <Instructions instructionsShowing={instructionsShowing} hide={toggle} />
         <Switch>
           <Route path="/signup">
             <SignUp />

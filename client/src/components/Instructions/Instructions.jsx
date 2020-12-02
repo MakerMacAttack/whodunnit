@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Instructions = ({ isShowing, hide }) =>
-  isShowing
+const Instructions = ({ instructionsShowing, hide }) =>
+  instructionsShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
           <div className="modal-overlay" />
