@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import { getAllSuspects } from "../../services/suspects";
 import useModal from "../../services/useModal";
 import Instructions from "../../components/Instructions/Instructions";
 import NavBar from "./../shared/NavBar/NavBar";
@@ -17,6 +18,14 @@ import Win from "./../../screens/Win/Win";
 import "./Main.css";
 
 export default function Main(props) {
+  const [suspects, setSuspects] = useState([]);
+  async function getSuspects() {
+    const lineup = await getAllSuspects();
+    setSuspects(lineup);
+  }
+  useEffect(() => {
+    getSuspects();
+  }, []);
   const { isShowing, toggle } = useModal();
   return (
     <div>
@@ -42,11 +51,11 @@ export default function Main(props) {
           <Route path="/note">
             <NoteDetail />
           </Route>
-          <Route path="/suspect">
-            <SuspectDetail />
+          <Route path="/suspects/:id">
+            <SuspectDetail suspects={suspects} />
           </Route>
           <Route path="/suspects">
-            <SuspectList />
+            <SuspectList suspects={suspects} />
           </Route>
           <Route path="/win">
             <Win />

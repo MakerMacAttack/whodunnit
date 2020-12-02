@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { getAllSuspects } from "../../services/suspects";
+import React from "react";
+import Suspect from "../../components/Suspect/Suspect";
 import "./SuspectList.css";
 
-export default function SuspectList(props) {
-  const [suspects, setSuspects] = useState(getAllSuspects);
+export default function SuspectList({ suspects }) {
   return (
     <div>
-      <h1>hey it's the suspect list</h1>
+      {suspects.map((suspect, idx) => (
+        <Suspect key={idx} suspect={suspect} />
+      ))}
     </div>
   );
 }
