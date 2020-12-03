@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import NoteCreate from "../../components/NoteCreate/NoteCreate";
 import { getAllNotes } from "../../services/notes";
 import Notebook from "./../../screens/Notebook/Notebook";
 import NoteDetail from "./../../screens/NoteDetail/NoteDetail";
@@ -20,7 +19,7 @@ export default function NotesContainer(props) {
     <div>
       <Switch>
         <Route path="/notes/:id">
-          <NoteDetail />
+          <NoteDetail notes={notes} />
         </Route>
         <Route path="/notes">
           <Notebook trigger={setToggle} notes={notes} />

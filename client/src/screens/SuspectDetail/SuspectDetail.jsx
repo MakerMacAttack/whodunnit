@@ -14,14 +14,18 @@ export default function SuspectDetail({ suspects }) {
       <p>Weapon: {subject && subject.weapon.name}</p>
       <p>Alibi: {subject && subject.alibi.content}</p>
       <button onClick={toggle}>Check Alibi</button>
-      <AlibiCheck
-        isShowing={isShowing}
-        hide={toggle}
-        check={subject.alibi.airtight}
-      />
-      <Link to={subject.dunnit ? "/win" : "/lose"}>
-        <button>ACCUSE!</button>
-      </Link>
+      {subject && (
+        <AlibiCheck
+          isShowing={isShowing}
+          hide={toggle}
+          check={subject.alibi.airtight}
+        />
+      )}
+      {subject && (
+        <Link to={subject.dunnit ? "/win" : "/lose"}>
+          <button>ACCUSE!</button>
+        </Link>
+      )}
     </div>
   );
 }
