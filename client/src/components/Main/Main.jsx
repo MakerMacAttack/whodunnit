@@ -1,6 +1,7 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import useModal from "../../services/useModal";
+import { removeToken, verifyUser } from "./services/auth";
 import Instructions from "../../components/Instructions/Instructions";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -15,7 +16,21 @@ import Win from "./../../screens/Win/Win";
 import "./Main.css";
 
 export default function Main(props) {
+  const [currentUser, setCurrentUser] = useState(null);
   const { isShowing, toggle } = useModal();
+  const history = useHistory();
+
+  useEffect(() => {
+    async function handleVerify() {
+      const userData = await verifyUser();
+      setCurrentUser(userData);
+      if (!userData) {
+        history.push("/login");
+      }
+    }
+    handleVerify();
+  }, []);
+
   return (
     <div>
       <NavBar toggle={toggle} />
@@ -23,10 +38,10 @@ export default function Main(props) {
         <Instructions isShowing={isShowing} hide={toggle} />
         <Switch>
           <Route path="/signup">
-            <SignUp />
+            <SignUp setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/forensics">
             <Forensics />

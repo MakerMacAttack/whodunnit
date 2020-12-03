@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { loginUser } from "./services/auth";
+import { handleChange } from "./services/forms";
 import "./Login.css";
 
-export default function Login(props) {
+export default function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
+    // I don't think I can import handleChange for this reasons
     username: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const handleLogin = async (loginData) => {
+    const userData = await loginUser(loginData);
+    setCurrentUser(userData);
+    history.push("/");
   };
 
   return (
@@ -21,7 +22,7 @@ export default function Login(props) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          props.handleLogin(formData);
+          handleLogin(formData);
         }}
       >
         <h3>Login</h3>
@@ -47,7 +48,7 @@ export default function Login(props) {
         <br />
         <button>Log in!</button>
       </form>
-      <Link to="/register">
+      <Link to="/signup">
         <button>New User</button>
       </Link>
     </div>
