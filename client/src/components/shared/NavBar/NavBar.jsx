@@ -1,16 +1,19 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar(props) {
-  const history = useHistory();
   return (
     <div id="navbar">
-      <button onClick={() => history.push("/")}>Home</button>
+      <Link to={"/"}>
+        <button>Home</button>
+      </Link>
       <button className="button-default" onClick={props.toggle}>
         Instructions
       </button>
-      <button>Notebook</button>
+      <Link to={"/notes"}>
+        <button>Notebook</button>
+      </Link>
     </div>
   );
 }

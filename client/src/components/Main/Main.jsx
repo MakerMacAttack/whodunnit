@@ -1,31 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { getAllSuspects } from "../../services/suspects";
 import useModal from "../../services/useModal";
 import Instructions from "../../components/Instructions/Instructions";
-import NavBar from "./../shared/NavBar/NavBar";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
 import Home from "./../../screens/Home/Home";
 import Login from "./../../screens/LogIn/Login";
 import Lose from "./../../screens/Lose/Lose";
-import Notebook from "./../../screens/Notebook/Notebook";
-import NoteDetail from "./../../screens/NoteDetail/NoteDetail";
+import NavBar from "./../shared/NavBar/NavBar";
+import NotesContainer from "../NotesContainer/NotesContainer";
 import SignUp from "./../../screens/SignUp/SignUp";
-import SuspectDetail from "./../../screens/SuspectDetail/SuspectDetail";
-import SuspectList from "./../../screens/SuspectList/SuspectList";
+import SuspectsContainer from "../SuspectsContainer/SuspectsContainer";
 import Win from "./../../screens/Win/Win";
 import "./Main.css";
 
 export default function Main(props) {
-  const [suspects, setSuspects] = useState([]);
-  async function getSuspects() {
-    const lineup = await getAllSuspects();
-    setSuspects(lineup);
-  }
-  useEffect(() => {
-    getSuspects();
-  }, []);
   const { isShowing, toggle } = useModal();
   return (
     <div>
@@ -45,25 +34,15 @@ export default function Main(props) {
           <Route path="/lose">
             <Lose />
           </Route>
-          <Route path="/notebook">
-            <Notebook />
-          </Route>
-          <Route path="/note">
-            <NoteDetail />
-          </Route>
-          <Route path="/suspects/:id">
-            <SuspectDetail suspects={suspects} />
-          </Route>
-          <Route path="/suspects">
-            <SuspectList suspects={suspects} />
-          </Route>
           <Route path="/win">
             <Win />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
+        <NotesContainer />
+        <SuspectsContainer />
       </body>
       <Footer />
     </div>
