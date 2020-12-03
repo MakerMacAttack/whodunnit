@@ -5,7 +5,7 @@ class SuspectsController < ApplicationController
   def index
     @suspects = Suspect.all
 
-    render json: @suspects
+    render json: @suspects, include: [:weapon, :alibi]
   end
 
   # GET /suspects/1
