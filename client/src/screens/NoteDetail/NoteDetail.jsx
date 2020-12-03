@@ -9,7 +9,18 @@ export default function NoteDetail({ notes }) {
     <h1>Loading...</h1>
   ) : (
     <div>
-      <p>Got it</p>
+      <p>Weapons Size:</p>
+      <p>{page.weapon_large ? "Large" : "Small"}</p>
+      <p>Weapon Type:</p>
+      <p>Suspect 1:</p>
+      <p>Suspect 2:</p>
+      <p>Suspect 3:</p>
+      <p>Suspect 4:</p>
+      <p>Suspect 5:</p>
+      <p>Suspect 6:</p>
+      <p>Suspect 7:</p>
+      <p>Suspect 8:</p>
+      <button>Delete Note</button>
     </div>
   );
 }

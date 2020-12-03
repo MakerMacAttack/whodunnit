@@ -8,24 +8,22 @@ export default function SuspectDetail({ suspects }) {
   const { isShowing, toggle } = useModal();
   const { id } = useParams();
   const subject = suspects.find((suspect) => suspect.id === Number(id));
-  return (
+  return subject === undefined ? (
+    <h1>Loading...</h1>
+  ) : (
     <div>
-      <p>Name: {subject && subject.name}</p>
-      <p>Weapon: {subject && subject.weapon.name}</p>
-      <p>Alibi: {subject && subject.alibi.content}</p>
+      <p>Name: {subject.name}</p>
+      <p>Weapon: {subject.weapon.name}</p>
+      <p>Alibi: {subject.alibi.content}</p>
       <button onClick={toggle}>Check Alibi</button>
-      {subject && (
-        <AlibiCheck
-          isShowing={isShowing}
-          hide={toggle}
-          check={subject.alibi.airtight}
-        />
-      )}
-      {subject && (
-        <Link to={subject.dunnit ? "/win" : "/lose"}>
-          <button>ACCUSE!</button>
-        </Link>
-      )}
+      <AlibiCheck
+        isShowing={isShowing}
+        hide={toggle}
+        check={subject.alibi.airtight}
+      />
+      <Link to={subject.dunnit ? "/win" : "/lose"}>
+        <button>ACCUSE!</button>
+      </Link>
     </div>
   );
 }
