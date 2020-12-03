@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import useModal from "../../services/useModal";
-import { removeToken, verifyUser } from "./services/auth";
+import { verifyUser } from "../../services/auth";
 import Instructions from "../../components/Instructions/Instructions";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -33,7 +33,11 @@ export default function Main(props) {
 
   return (
     <div>
-      <NavBar toggle={toggle} />
+      <NavBar
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        toggle={toggle}
+      />
       <body>
         <Instructions isShowing={isShowing} hide={toggle} />
         <Switch>

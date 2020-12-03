@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { loginUser } from "./services/auth";
-import { handleChange } from "./services/forms";
+import { Link, useHistory } from "react-router-dom";
+import { loginUser } from "../../services/auth";
+// import { handleChange } from "../../services/forms";
 import "./Login.css";
 
 export default function Login({ setCurrentUser }) {
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     // I don't think I can import handleChange for this reasons
     username: "",
     password: "",
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleLogin = async (loginData) => {
     const userData = await loginUser(loginData);

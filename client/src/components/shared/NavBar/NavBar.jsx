@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { removeToken } from "./services/auth";
+import { Link, useHistory } from "react-router-dom";
+import { removeToken } from "../../../services/auth";
 import "./NavBar.css";
 
-export default function NavBar({ setCurrentUser }) {
+export default function NavBar({ currentUser, setCurrentUser, toggle }) {
+  const history = useHistory();
+
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem("authToken");
@@ -13,10 +15,10 @@ export default function NavBar({ setCurrentUser }) {
 
   return (
     <div id="navbar">
-      <Link to={"/"}>
+      <Link to={currentUser === null ? "/login" : "/"}>
         <button>Home</button>
       </Link>
-      <button className="button-default" onClick={props.toggle}>
+      <button className="button-default" onClick={toggle}>
         Instructions
       </button>
       <Link to={"/notes"}>
