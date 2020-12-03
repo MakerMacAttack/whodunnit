@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./WeaponDetail.css";
+import "./AlibiCheck.css";
 
-const WeaponDetail = ({ isShowing, hide, quality }) =>
+const AlibiCheck = ({ isShowing, hide, check }) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -27,7 +27,9 @@ const WeaponDetail = ({ isShowing, hide, quality }) =>
                 </button>
               </div>
               <p>
-                The wound indicates that the weapon must have been {quality}
+                {check
+                  ? "The alibi checks out. This isn't the murderer!"
+                  : "Caught in a lie! But that doesn't make them a killer..."}
               </p>
             </div>
           </div>
@@ -36,4 +38,4 @@ const WeaponDetail = ({ isShowing, hide, quality }) =>
       )
     : null;
 
-export default WeaponDetail;
+export default AlibiCheck;
