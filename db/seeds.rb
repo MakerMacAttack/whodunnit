@@ -15,8 +15,8 @@ Alibi.destroy_all
 @admin = User.create!(username: 'admin', password: '123456') 
 User.create!(username: 'secondary', password: '654321')
 
-Note.create!(weapon_sharp: nil, weapon_large: nil, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user: @admin)
-Note.create!(weapon_sharp: nil, weapon_large: nil, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user: @admin)
+Note.create!(weapon_sharp: -1, weapon_large: 1, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user: @admin)
+Note.create!(weapon_sharp: 1, weapon_large: -1, suspect1_clear: nil, suspect2_clear: nil, suspect3_clear: nil, suspect4_clear: nil, suspect5_clear: nil, suspect6_clear: nil, suspect7_clear: nil, suspect8_clear: nil, user: @admin)
 
 @murderer = Suspect.create!(name: "Sir Kills-a-lot", dunnit: true)
 @innocent = Suspect.create!(name: "Red Herring", dunnit: false)
