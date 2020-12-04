@@ -4,7 +4,7 @@ import { destroyNote, putNote } from "../../services/notes";
 import "./NoteDetail.css";
 
 export default function NoteDetail({ notes, trigger }) {
-  const [thisNote, setThisNote] = useState({});
+  const [thisNote, setThisNote] = useState(null);
   const { id } = useParams();
   const history = useHistory();
 
@@ -35,15 +35,18 @@ export default function NoteDetail({ notes, trigger }) {
   }, []);
 
   async function editNote() {
-    await putNote(id, thisNote);
+    if (thisNote) {
+      await putNote(id, thisNote);
+    }
   }
 
   useEffect(() => {
     editNote();
+    trigger();
     // eslint-disable-next-line
   }, [thisNote]);
 
-  return thisNote === undefined ? (
+  return thisNote === null ? (
     <h1>Loading...</h1>
   ) : (
     <div>
