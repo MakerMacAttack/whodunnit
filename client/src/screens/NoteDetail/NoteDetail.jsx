@@ -31,22 +31,22 @@ export default function NoteDetail({ notes, trigger }) {
     <div>
       <p>Weapons Size:</p>
       <button
-        className={thisNote.weapon_large ? "blue" : "grey"}
+        className={thisNote.weapon_large === 1 ? "blue" : "grey"}
         onClick={() =>
           setThisNote((prevState) => ({
             ...prevState,
-            weapon_large: true,
+            weapon_large: prevState.weapon_large === 1 ? 0 : 1,
           }))
         }
       >
         Large
       </button>
       <button
-        className={thisNote.weapon_large ? "grey" : "blue"}
+        className={thisNote.weapon_large === -1 ? "blue" : "grey"}
         onClick={() =>
           setThisNote((prevState) => ({
             ...prevState,
-            weapon_large: false,
+            weapon_large: prevState.weapon_large === -1 ? 0 : -1,
           }))
         }
       >

@@ -19,7 +19,9 @@ export default function NotesContainer({ currentUser }) {
     pageSelect(wholeBook);
   }
   useEffect(() => {
-    getNotes();
+    if (currentUser) {
+      getNotes();
+    }
   }, [toggle]);
   return (
     <div>
