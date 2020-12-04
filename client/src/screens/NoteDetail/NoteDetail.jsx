@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { putNote } from "../../services/notes";
+import { useHistory, useParams } from "react-router-dom";
+import { destroyNote, putNote } from "../../services/notes";
 import "./NoteDetail.css";
 
-export default function NoteDetail({ notes }) {
+export default function NoteDetail({ notes, trigger }) {
   const [thisNote, setThisNote] = useState({});
   const { id } = useParams();
+  const history = useHistory();
+
+  function goBack() {
+    history.push("/notes");
+  }
+
+  async function handleDelete() {
+    await destroyNote(id);
+    trigger((prevState) => !prevState);
+    goBack();
+  }
 
   useEffect(() => {
     const page = notes.find((note) => note.id === Number(id));
@@ -50,7 +61,7 @@ export default function NoteDetail({ notes }) {
       <p>Suspect 6:</p>
       <p>Suspect 7:</p>
       <p>Suspect 8:</p>
-      <button>Delete Note</button>
+      <button onClick={handleDelete}>Delete Note</button>
     </div>
   );
 }
