@@ -1,9 +1,20 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const baseUrl = 'http://localhost:3000';
+let apiUrl
+
+const apiUrls = {
+    production: 'https://whodunnit.herokuapp.com',
+    development: 'http://localhost:3000'
+}
+
+if (window.location.hostname === 'localhost') {
+    apiUrl = apiUrls.development
+} else {
+    apiUrl = apiUrls.production
+}
 
 const api = axios.create({
-  baseURL: baseUrl
+    baseURL: apiUrl
 })
 
-export default api;
+export default api

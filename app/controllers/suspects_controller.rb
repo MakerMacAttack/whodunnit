@@ -5,12 +5,12 @@ class SuspectsController < ApplicationController
   def index
     @suspects = Suspect.all
 
-    render json: @suspects
+    render json: @suspects, include: [:weapon, :alibi]
   end
 
   # GET /suspects/1
   def show
-    render json: @suspect
+    render json: @suspect, include: [:weapon, :alibi]
   end
 
   # POST /suspects

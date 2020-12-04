@@ -1,0 +1,13 @@
+#forensics {
+  display: flex;
+  flex-direction: column;
+  max-width: 70vw;
+  margin-left: 15vw;
+  align-items: center;
+}
+
+#forensics > button {
+  width: 300px;
+  height: 80px;
+  margin: 10px;
+}

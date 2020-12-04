@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_011617) do
+ActiveRecord::Schema.define(version: 2020_12_04_011555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_011617) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.boolean "weapon_sharp"
-    t.boolean "weapon_large"
     t.boolean "suspect1_clear"
     t.boolean "suspect2_clear"
     t.boolean "suspect3_clear"
@@ -38,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_12_01_011617) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "weapon_sharp"
+    t.integer "weapon_large"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_011617) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
