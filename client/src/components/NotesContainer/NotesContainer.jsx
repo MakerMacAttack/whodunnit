@@ -22,6 +22,7 @@ export default function NotesContainer({ currentUser }) {
     if (currentUser) {
       getNotes();
     }
+    // eslint-disable-next-line
   }, [toggle]);
   return (
     <div>

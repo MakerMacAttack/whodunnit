@@ -8,22 +8,40 @@ export default function NoteDetail({ notes, trigger }) {
   const { id } = useParams();
   const history = useHistory();
 
-  function goBack() {
-    history.push("/notes");
-  }
-
   async function handleDelete() {
     await destroyNote(id);
     trigger((prevState) => !prevState);
-    goBack();
+    history.push("/notes");
   }
 
   useEffect(() => {
     const page = notes.find((note) => note.id === Number(id));
     if (page) {
-      setThisNote(page);
+      // need to destructure this better
+      setThisNote({
+        weapon_large: page.weapon_large,
+        weapon_sharp: page.weapon_sharp,
+        suspect1_clear: page.suspect1_clear,
+        suspect2_clear: page.suspect2_clear,
+        suspect3_clear: page.suspect3_clear,
+        suspect4_clear: page.suspect4_clear,
+        suspect5_clear: page.suspect5_clear,
+        suspect6_clear: page.suspect6_clear,
+        suspect7_clear: page.suspect7_clear,
+        suspect8_clear: page.suspect8_clear,
+      });
     }
+    // eslint-disable-next-line
   }, []);
+
+  async function editNote() {
+    await putNote(id, thisNote);
+  }
+
+  useEffect(() => {
+    editNote();
+    // eslint-disable-next-line
+  }, [thisNote]);
 
   return thisNote === undefined ? (
     <h1>Loading...</h1>

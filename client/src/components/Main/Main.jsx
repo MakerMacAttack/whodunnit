@@ -29,6 +29,7 @@ export default function Main(props) {
       }
     }
     handleVerify();
+    // eslint-disable-next-line
   }, []);
 
   return (
