@@ -60,7 +60,7 @@ export default function Main(props) {
             <Home />
           </Route>
         </Switch>
-        <NotesContainer />
+        <NotesContainer currentUser={currentUser} />
         <SuspectsContainer />
       </body>
       <Footer />

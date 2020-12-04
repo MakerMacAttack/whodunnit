@@ -1,7 +1,7 @@
 import React from "react";
 import { postNote } from "../../services/notes";
 
-export default function NoteCreate({ trigger }) {
+export default function NoteCreate({ trigger, currentUser }) {
   async function handleClick() {
     await postNote({
       weapon_sharp: null,
@@ -14,7 +14,7 @@ export default function NoteCreate({ trigger }) {
       suspect6_clear: null,
       suspect7_clear: null,
       suspect8_clear: null,
-      user: "1", // change this to current user
+      user_id: currentUser.id,
     });
     trigger((prevState) => !prevState);
   }

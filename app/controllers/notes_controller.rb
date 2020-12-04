@@ -46,6 +46,6 @@ class NotesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def note_params
-      params.require(:note).permit(:weapon_sharp, :weapon_large, :suspect1_clear, :suspect2_clear, :suspect3_clear, :suspect4_clear, :suspect5_clear, :suspect6_clear, :suspect7_clear, :suspect8_clear)
+      params.require(:note).permit(:weapon_sharp, :weapon_large, :suspect1_clear, :suspect2_clear, :suspect3_clear, :suspect4_clear, :suspect5_clear, :suspect6_clear, :suspect7_clear, :suspect8_clear, :user_id)
     end
 end
