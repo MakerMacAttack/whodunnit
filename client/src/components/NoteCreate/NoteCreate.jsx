@@ -4,16 +4,16 @@ import { postNote } from "../../services/notes";
 export default function NoteCreate({ trigger, currentUser }) {
   async function handleClick() {
     await postNote({
-      weapon_sharp: null,
-      weapon_large: null,
-      suspect1_clear: null,
-      suspect2_clear: null,
-      suspect3_clear: null,
-      suspect4_clear: null,
-      suspect5_clear: null,
-      suspect6_clear: null,
-      suspect7_clear: null,
-      suspect8_clear: null,
+      weapon_sharp: 0,
+      weapon_large: 0,
+      suspect1_clear: false,
+      suspect2_clear: false,
+      suspect3_clear: false,
+      suspect4_clear: false,
+      suspect5_clear: false,
+      suspect6_clear: false,
+      suspect7_clear: false,
+      suspect8_clear: false,
       user_id: currentUser.id,
     });
     trigger((prevState) => !prevState);
