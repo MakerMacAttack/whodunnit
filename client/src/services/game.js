@@ -1,4 +1,5 @@
 export const assignKiller = (list) => {
-  const result = list[Math.floor(Math.random() * list.length)]
+  const idx = Math.floor(Math.random() * list.length)
+  const result = list[idx]
   return result
 }

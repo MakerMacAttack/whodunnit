@@ -19,6 +19,7 @@ import { assignKiller } from "../../services/game";
 
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentGame, setCurrentGame] = useState([]);
   const [suspects, setSuspects] = useState([]);
   const [guilty, setGuilty] = useState(null);
 
@@ -45,16 +46,19 @@ export default function Main(props) {
   useEffect(() => {
     if (suspects.length > 0) {
       const killer = assignKiller(suspects);
-      // console.log("killer ", killer);
       setKiller(killer);
+      if (killer.alibi.airtight) {
+        suspects.forEach(
+          (suspect) => (suspect.alibi.airtight = !suspect.alibi.airtight)
+        );
+      }
+      setCurrentGame(suspects);
     }
   }, [suspects]);
 
   async function getSuspects() {
     const lineup = await getAllSuspects();
-    // console.log("lineup ", lineup);
     setSuspects(lineup);
-    // chooseKiller();
   }
 
   useEffect(() => {
@@ -92,7 +96,7 @@ export default function Main(props) {
           </Route>
         </Switch>
         <NotesContainer suspects={suspects} currentUser={currentUser} />
-        <SuspectsContainer suspects={suspects} />
+        <SuspectsContainer currentGame={currentGame} guilty={guilty} />
       </body>
       <Footer />
     </main>
