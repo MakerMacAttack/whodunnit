@@ -20,7 +20,7 @@ import { assignKiller } from "../../services/game";
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
   const [suspects, setSuspects] = useState([]);
-  const [gameState, setGameState] = useState({});
+  const [guilty, setGuilty] = useState(null);
 
   const { isShowing, toggle } = useModal();
   const history = useHistory();
@@ -37,18 +37,24 @@ export default function Main(props) {
     // eslint-disable-next-line
   }, []);
 
-  function chooseKiller() {
-    const killer = assignKiller(suspects);
-    setGameState((prevState) => ({
-      ...prevState,
-      killer: killer,
-    }));
+  function setKiller(killer) {
+    setGuilty(killer);
+    console.log("guilty ", guilty);
   }
+
+  useEffect(() => {
+    if (suspects.length > 0) {
+      const killer = assignKiller(suspects);
+      // console.log("killer ", killer);
+      setKiller(killer);
+    }
+  }, [suspects]);
 
   async function getSuspects() {
     const lineup = await getAllSuspects();
+    // console.log("lineup ", lineup);
     setSuspects(lineup);
-    chooseKiller();
+    // chooseKiller();
   }
 
   useEffect(() => {
@@ -57,7 +63,7 @@ export default function Main(props) {
   }, []);
 
   return (
-    <div>
+    <main>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
@@ -73,13 +79,13 @@ export default function Main(props) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/forensics">
-            <Forensics gameState={gameState} />
+            <Forensics guilty={guilty} />
           </Route>
           <Route path="/lose">
-            <Lose setGameState={setGameState} />
+            <Lose setGuilty={setGuilty} />
           </Route>
           <Route path="/win">
-            <Win setGameState={setGameState} />
+            <Win setGuilty={setGuilty} />
           </Route>
           <Route exact path="/">
             <Home />
@@ -89,6 +95,6 @@ export default function Main(props) {
         <SuspectsContainer suspects={suspects} />
       </body>
       <Footer />
-    </div>
+    </main>
   );
 }

@@ -8,7 +8,7 @@ export default function WeaponSizeCheck({ quality }) {
   return (
     <div>
       <WeaponSize isShowing={isShowing} hide={toggle} quality={quality} />
-      <button onClick={toggle}>Check size of wound</button>
+      <button onClick={toggle}>Check size of wound.</button>
     </div>
   );
 }

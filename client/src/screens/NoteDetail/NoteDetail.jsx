@@ -123,7 +123,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect2_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>{suspects[0].name}:</p>
+      <p>{suspects[2].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -134,7 +134,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect3_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 4:</p>
+      <p>{suspects[3].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -145,7 +145,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect4_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 5:</p>
+      <p>{suspects[4].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -156,7 +156,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect5_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 6:</p>
+      <p>{suspects[5].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -167,7 +167,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect6_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 7:</p>
+      <p>{suspects[6].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -178,7 +178,7 @@ export default function NoteDetail({ notes, trigger, suspects }) {
       >
         {thisNote.suspect7_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 8:</p>
+      <p>{suspects[7].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
