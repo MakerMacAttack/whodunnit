@@ -7,6 +7,7 @@ import NoteDetail from "./../../screens/NoteDetail/NoteDetail";
 export default function NotesContainer({ currentUser }) {
   const [notes, setNotes] = useState([]);
   const [toggle, setToggle] = useState(true);
+  // Next time set up a helper function trigger that does the whole prevState of toggle and saves time.
 
   function pageSelect(book) {
     const pages = book.filter((page) => page.user_id === currentUser.id);
@@ -24,6 +25,7 @@ export default function NotesContainer({ currentUser }) {
     }
     // eslint-disable-next-line
   }, [toggle]);
+
   return (
     <div>
       <Switch>
