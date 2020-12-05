@@ -1,9 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Win.css";
 
-export default function Win({ setGameState }) {
+export default function Win({ getSuspects }) {
+  const history = useHistory();
+
   function handleReset() {
-    setGameState({});
+    getSuspects();
+    history.push("/");
   }
 
   return (

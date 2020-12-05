@@ -1,9 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Lose.css";
 
-export default function Lose({ setGameState }) {
+export default function Lose({ getSuspects }) {
+  const history = useHistory();
+
   function handleReset() {
-    setGameState({});
+    getSuspects();
+    history.push("/");
   }
 
   return (

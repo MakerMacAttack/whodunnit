@@ -54,6 +54,7 @@ export default function Main(props) {
       }
       setCurrentGame(suspects);
     }
+    // eslint-disable-next-line
   }, [suspects]);
 
   async function getSuspects() {
@@ -86,10 +87,10 @@ export default function Main(props) {
             <Forensics guilty={guilty} />
           </Route>
           <Route path="/lose">
-            <Lose setGuilty={setGuilty} />
+            <Lose getSuspects={getSuspects} />
           </Route>
           <Route path="/win">
-            <Win setGuilty={setGuilty} />
+            <Win getSuspects={getSuspects} />
           </Route>
           <Route exact path="/">
             <Home />
