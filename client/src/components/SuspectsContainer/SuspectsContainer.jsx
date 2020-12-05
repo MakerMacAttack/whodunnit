@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import { getAllSuspects } from "../../services/suspects";
 import SuspectDetail from "./../../screens/SuspectDetail/SuspectDetail";
 import SuspectList from "./../../screens/SuspectList/SuspectList";
 
-export default function SuspectsContainer(props) {
-  const [suspects, setSuspects] = useState([]);
-  async function getSuspects() {
-    const lineup = await getAllSuspects();
-    setSuspects(lineup);
-  }
-  useEffect(() => {
-    getSuspects();
-  }, []);
+export default function SuspectsContainer({ suspects }) {
   return (
     <div>
       <Switch>

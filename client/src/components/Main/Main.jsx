@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import useModal from "../../services/useModal";
 import { verifyUser } from "../../services/auth";
+import { getAllSuspects } from "../../services/suspects";
 import Instructions from "../../components/Instructions/Instructions";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -17,6 +18,9 @@ import "./Main.css";
 
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [suspects, setSuspects] = useState([]);
+  const [gameState, setGameState] = useState({});
+
   const { isShowing, toggle } = useModal();
   const history = useHistory();
 
@@ -30,6 +34,14 @@ export default function Main(props) {
     }
     handleVerify();
     // eslint-disable-next-line
+  }, []);
+
+  async function getSuspects() {
+    const lineup = await getAllSuspects();
+    setSuspects(lineup);
+  }
+  useEffect(() => {
+    getSuspects();
   }, []);
 
   return (
@@ -52,17 +64,17 @@ export default function Main(props) {
             <Forensics />
           </Route>
           <Route path="/lose">
-            <Lose />
+            <Lose setGameState={setGameState} />
           </Route>
           <Route path="/win">
-            <Win />
+            <Win setGameState={setGameState} />
           </Route>
           <Route exact path="/">
             <Home />
           </Route>
         </Switch>
         <NotesContainer currentUser={currentUser} />
-        <SuspectsContainer />
+        <SuspectsContainer suspects={suspects} />
       </body>
       <Footer />
     </div>
