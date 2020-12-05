@@ -15,6 +15,7 @@ import SignUp from "./../../screens/SignUp/SignUp";
 import SuspectsContainer from "../SuspectsContainer/SuspectsContainer";
 import Win from "./../../screens/Win/Win";
 import "./Main.css";
+import { assignKiller } from "../../services/game";
 
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -36,12 +37,23 @@ export default function Main(props) {
     // eslint-disable-next-line
   }, []);
 
+  function chooseKiller() {
+    const killer = assignKiller(suspects);
+    setGameState((prevState) => ({
+      ...prevState,
+      killer: killer,
+    }));
+  }
+
   async function getSuspects() {
     const lineup = await getAllSuspects();
     setSuspects(lineup);
+    chooseKiller();
   }
+
   useEffect(() => {
     getSuspects();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -61,7 +73,7 @@ export default function Main(props) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/forensics">
-            <Forensics />
+            <Forensics gameState={gameState} />
           </Route>
           <Route path="/lose">
             <Lose setGameState={setGameState} />
@@ -73,7 +85,7 @@ export default function Main(props) {
             <Home />
           </Route>
         </Switch>
-        <NotesContainer currentUser={currentUser} />
+        <NotesContainer suspects={suspects} currentUser={currentUser} />
         <SuspectsContainer suspects={suspects} />
       </body>
       <Footer />

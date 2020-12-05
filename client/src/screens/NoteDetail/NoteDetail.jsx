@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { destroyNote, putNote } from "../../services/notes";
 import "./NoteDetail.css";
 
-export default function NoteDetail({ notes, trigger }) {
+export default function NoteDetail({ notes, trigger, suspects }) {
   const [thisNote, setThisNote] = useState(null);
   const { id } = useParams();
   const history = useHistory();
@@ -100,7 +100,8 @@ export default function NoteDetail({ notes, trigger }) {
       >
         Blunt
       </button>
-      <p>Suspect 1:</p>
+      {/* Find a way to make the below a map */}
+      <p>{suspects[0].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -111,7 +112,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect1_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 2:</p>
+      <p>{suspects[1].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -122,7 +123,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect2_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 3:</p>
+      <p>{suspects[0].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({

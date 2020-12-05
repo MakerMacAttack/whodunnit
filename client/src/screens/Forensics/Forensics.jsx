@@ -1,14 +1,18 @@
 import React from "react";
-import WeapondDetail from "../../components/WeaponDetail/WeaponDetail";
+import WeaponType from "../../components/WeaponType/WeaponType";
 import useModal from "../../services/useModal";
 import "./Forensics.css";
 
-export default function Forensics(props) {
+export default function Forensics({ gameState }) {
   const quality = "test string";
   const { isShowing, toggle } = useModal();
   return (
     <div id="forensics">
-      <WeapondDetail isShowing={isShowing} hide={toggle} quality={quality} />
+      <WeaponType
+        isShowing={isShowing}
+        hide={toggle}
+        quality={gameState.killer.weapon}
+      />
       {/* Find a way to pass along the specific quality  */}
       <h3>
         By examining the wound, you can narrow down the type of weapon used to
