@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import useModal from "../../services/useModal";
 import { verifyUser } from "../../services/auth";
+import { getAllSuspects } from "../../services/suspects";
 import Instructions from "../../components/Instructions/Instructions";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -14,9 +15,14 @@ import SignUp from "./../../screens/SignUp/SignUp";
 import SuspectsContainer from "../SuspectsContainer/SuspectsContainer";
 import Win from "./../../screens/Win/Win";
 import "./Main.css";
+import { assignKiller } from "../../services/game";
 
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentGame, setCurrentGame] = useState([]);
+  const [suspects, setSuspects] = useState([]);
+  const [guilty, setGuilty] = useState(null);
+
   const { isShowing, toggle } = useModal();
   const history = useHistory();
 
@@ -32,8 +38,37 @@ export default function Main(props) {
     // eslint-disable-next-line
   }, []);
 
+  function setKiller(killer) {
+    setGuilty(killer);
+    console.log("guilty ", guilty);
+  }
+
+  useEffect(() => {
+    if (suspects.length > 0) {
+      const killer = assignKiller(suspects);
+      setKiller(killer);
+      if (killer.alibi.airtight) {
+        suspects.forEach(
+          (suspect) => (suspect.alibi.airtight = !suspect.alibi.airtight)
+        );
+      }
+      setCurrentGame(suspects);
+    }
+    // eslint-disable-next-line
+  }, [suspects]);
+
+  async function getSuspects() {
+    const lineup = await getAllSuspects();
+    setSuspects(lineup);
+  }
+
+  useEffect(() => {
+    getSuspects();
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div>
+    <main>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
@@ -49,22 +84,22 @@ export default function Main(props) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/forensics">
-            <Forensics />
+            <Forensics guilty={guilty} />
           </Route>
           <Route path="/lose">
-            <Lose />
+            <Lose getSuspects={getSuspects} />
           </Route>
           <Route path="/win">
-            <Win />
+            <Win getSuspects={getSuspects} />
           </Route>
           <Route exact path="/">
             <Home />
           </Route>
         </Switch>
-        <NotesContainer currentUser={currentUser} />
-        <SuspectsContainer />
+        <NotesContainer suspects={suspects} currentUser={currentUser} />
+        <SuspectsContainer currentGame={currentGame} guilty={guilty} />
       </body>
       <Footer />
-    </div>
+    </main>
   );
 }

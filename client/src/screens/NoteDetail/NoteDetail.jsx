@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { destroyNote, putNote } from "../../services/notes";
 import "./NoteDetail.css";
 
-export default function NoteDetail({ notes, trigger }) {
+export default function NoteDetail({ notes, trigger, suspects }) {
   const [thisNote, setThisNote] = useState(null);
   const { id } = useParams();
   const history = useHistory();
@@ -100,7 +100,8 @@ export default function NoteDetail({ notes, trigger }) {
       >
         Blunt
       </button>
-      <p>Suspect 1:</p>
+      {/* Find a way to make the below a map */}
+      <p>{suspects[0].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -111,7 +112,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect1_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 2:</p>
+      <p>{suspects[1].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -122,7 +123,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect2_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 3:</p>
+      <p>{suspects[2].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -133,7 +134,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect3_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 4:</p>
+      <p>{suspects[3].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -144,7 +145,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect4_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 5:</p>
+      <p>{suspects[4].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -155,7 +156,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect5_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 6:</p>
+      <p>{suspects[5].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -166,7 +167,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect6_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 7:</p>
+      <p>{suspects[6].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({
@@ -177,7 +178,7 @@ export default function NoteDetail({ notes, trigger }) {
       >
         {thisNote.suspect7_clear ? "Cleared" : "Kinda Sus"}
       </button>
-      <p>Suspect 8:</p>
+      <p>{suspects[7].name}:</p>
       <button
         onClick={() =>
           setThisNote((prevState) => ({

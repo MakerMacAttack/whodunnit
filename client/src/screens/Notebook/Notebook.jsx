@@ -9,9 +9,7 @@ export default function Notebook({ notes, trigger, currentUser }) {
     // eslint-disable-next-line
   }, []);
 
-  return notes.length === 0 ? (
-    <h1>Notebook Loading...</h1>
-  ) : (
+  return (
     <div>
       {notes.map((note, idx) => (
         <Note key={idx} note={note} />
@@ -20,3 +18,7 @@ export default function Notebook({ notes, trigger, currentUser }) {
     </div>
   );
 }
+
+// notes.length === 0 ? (
+// <h1>Notebook Loading...</h1>
+// ) :

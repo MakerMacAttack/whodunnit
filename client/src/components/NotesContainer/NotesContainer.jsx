@@ -4,7 +4,7 @@ import { getAllNotes } from "../../services/notes";
 import Notebook from "./../../screens/Notebook/Notebook";
 import NoteDetail from "./../../screens/NoteDetail/NoteDetail";
 
-export default function NotesContainer({ currentUser }) {
+export default function NotesContainer({ currentUser, suspects }) {
   const [notes, setNotes] = useState([]);
   const [toggle, setToggle] = useState(true);
   // Next time set up a helper function trigger that does the whole prevState of toggle and saves time.
@@ -30,7 +30,7 @@ export default function NotesContainer({ currentUser }) {
     <div>
       <Switch>
         <Route path="/notes/:id">
-          <NoteDetail notes={notes} trigger={setToggle} />
+          <NoteDetail notes={notes} trigger={setToggle} suspects={suspects} />
         </Route>
         <Route path="/notes">
           <Notebook
