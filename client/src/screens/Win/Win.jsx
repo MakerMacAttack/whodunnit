@@ -15,7 +15,9 @@ export default function Win({ getSuspects }) {
       <h1>You win!</h1>
       <p>No criminal is safe while you're on the case.</p>
       <p>Try again?</p>
-      <button onClick={handleReset}>Play again</button>
+      <button className="create" onClick={handleReset}>
+        Play again
+      </button>
     </div>
   );
 }
