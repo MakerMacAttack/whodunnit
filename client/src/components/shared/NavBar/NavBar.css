@@ -1,16 +1,27 @@
 #navbar {
   position: fixed;
   top: 0;
+  width: 100vw;
+  height: 7vh;
+  background-color: #5c3f78;
+  display: flex;
+  justify-content: center;
+}
+
+#head-button-box {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   height: 7vh;
-  width: 100%;
-  /* margin-left: 5vw; */
+  width: 90vw;
   padding-top: 5px;
   margin-bottom: 10px;
-  background-color: #5c3f78;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-button {
   color: #f04e1f;
 }
 
@@ -18,3 +29,13 @@
   min-width: 75px;
   margin: 5px;
 } */
+
+@media screen and (min-width: 400px) {
+  .header-button {
+    font-size: 20px;
+  }
+
+  #head-button-box {
+    max-width: 75vw;
+  }
+}

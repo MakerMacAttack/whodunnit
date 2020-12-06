@@ -4,10 +4,16 @@
   width: 100vw;
   height: 5vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #5c3f78;
   color: #f04e1f;
+}
+
+#foot-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .foot-button {
@@ -16,4 +22,27 @@
 
 .foot-button > button {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 400px) {
+  #footer {
+    font-size: 20px;
+  }
+
+  .foot-button > button {
+    font-size: 20px;
+  }
+
+  #foot-content {
+    width: 90vw;
+  }
+
+  .foot-button {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 750px) {
 }
