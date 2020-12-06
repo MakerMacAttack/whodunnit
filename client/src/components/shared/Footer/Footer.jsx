@@ -7,8 +7,20 @@ export default function Footer(props) {
       <div id="foot-content">
         <p>Tech Media Management &trade;</p>
         <div className="foot-button">
-          <button>GitHub</button>
-          <button>LinkedIn</button>
+          <a
+            href="https://github.com/MakerMacAttack/whodunnit"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button>GitHub</button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mac-may/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button>LinkedIn</button>
+          </a>
         </div>
       </div>
     </div>
