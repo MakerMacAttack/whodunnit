@@ -40,13 +40,12 @@ export default function Main(props) {
 
   function setKiller(killer) {
     setGuilty(killer);
-    console.log("guilty ", guilty);
   }
 
   useEffect(() => {
     if (suspects.length > 0) {
       const killer = assignKiller(suspects);
-      setKiller(killer);
+      setKiller(killer); // See if you can condense this to just setGuilty
       if (killer.alibi.airtight) {
         suspects.forEach(
           (suspect) => (suspect.alibi.airtight = !suspect.alibi.airtight)
@@ -68,13 +67,13 @@ export default function Main(props) {
   }, []);
 
   return (
-    <main>
+    <div>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         toggle={toggle}
       />
-      <body>
+      <main>
         <Instructions isShowing={isShowing} hide={toggle} />
         <Switch>
           <Route path="/signup">
@@ -98,8 +97,8 @@ export default function Main(props) {
         </Switch>
         <NotesContainer suspects={suspects} currentUser={currentUser} />
         <SuspectsContainer currentGame={currentGame} guilty={guilty} />
-      </body>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
