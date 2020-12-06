@@ -54,55 +54,57 @@ export default function NoteDetail({ notes, trigger, suspects }) {
     <h1>Loading...</h1>
   ) : (
     <div>
-      <div className="suspect-line">
-        <p>Weapons Size:</p>
-        <button
-          className={thisNote.weapon_large === 1 ? "blue" : "grey"}
-          onClick={() =>
-            setThisNote((prevState) => ({
-              ...prevState,
-              weapon_large: prevState.weapon_large === 1 ? 0 : 1,
-            }))
-          }
-        >
-          Large
-        </button>
-        <button
-          className={thisNote.weapon_large === -1 ? "blue" : "grey"}
-          onClick={() =>
-            setThisNote((prevState) => ({
-              ...prevState,
-              weapon_large: prevState.weapon_large === -1 ? 0 : -1,
-            }))
-          }
-        >
-          Small
-        </button>
-      </div>
-      <div className="suspect-line">
-        <p>Weapon Type:</p>
-        <button
-          className={thisNote.weapon_sharp === 1 ? "blue" : "grey"}
-          onClick={() =>
-            setThisNote((prevState) => ({
-              ...prevState,
-              weapon_sharp: prevState.weapon_sharp === 1 ? 0 : 1,
-            }))
-          }
-        >
-          Sharp
-        </button>
-        <button
-          className={thisNote.weapon_sharp === -1 ? "blue" : "grey"}
-          onClick={() =>
-            setThisNote((prevState) => ({
-              ...prevState,
-              weapon_sharp: prevState.weapon_sharp === -1 ? 0 : -1,
-            }))
-          }
-        >
-          Blunt
-        </button>
+      <div id="weapon-box">
+        <div className="suspect-line">
+          <p>Weapons Size:</p>
+          <button
+            className={thisNote.weapon_large === 1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_large: prevState.weapon_large === 1 ? 0 : 1,
+              }))
+            }
+          >
+            Large
+          </button>
+          <button
+            className={thisNote.weapon_large === -1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_large: prevState.weapon_large === -1 ? 0 : -1,
+              }))
+            }
+          >
+            Small
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p>Weapon Type:</p>
+          <button
+            className={thisNote.weapon_sharp === 1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_sharp: prevState.weapon_sharp === 1 ? 0 : 1,
+              }))
+            }
+          >
+            Sharp
+          </button>
+          <button
+            className={thisNote.weapon_sharp === -1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_sharp: prevState.weapon_sharp === -1 ? 0 : -1,
+              }))
+            }
+          >
+            Blunt
+          </button>
+        </div>
       </div>
       {/* Find a way to make the below a map */}
       <div className="suspect-line">
@@ -225,7 +227,9 @@ export default function NoteDetail({ notes, trigger, suspects }) {
           {thisNote.suspect8_clear ? "Cleared" : "Kinda Sus"}
         </button>
       </div>
-      <button onClick={handleDelete}>Delete Note</button>
+      <button className="create" onClick={handleDelete}>
+        Delete Note
+      </button>
     </div>
   );
 }
