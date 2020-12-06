@@ -6,10 +6,10 @@ export default function Home(props) {
   return (
     <div id="home">
       <Link to={"/forensics"}>
-        <button>Inspect</button>
+        <button className="home-button">Inspect</button>
       </Link>
       <Link to={"/suspects"}>
-        <button>Interview</button>
+        <button className="home-button">Interview</button>
       </Link>
     </div>
   );

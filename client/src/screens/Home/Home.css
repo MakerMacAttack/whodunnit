@@ -4,8 +4,11 @@
   align-items: center;
 }
 
-#home > button {
+.home-button {
   width: 300px;
-  height: 80px;
+  height: 100px;
   margin: 10px;
+  color: #5c3f78;
+  font-size: 40px;
+  font-weight: bold;
 }

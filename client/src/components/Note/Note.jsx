@@ -5,7 +5,7 @@ export default function Note({ note }) {
   return (
     <div>
       <Link to={`/notes/${note.id}`}>
-        <button>{note && `Note #${note.id}`}</button>
+        <button className="home-button">{note && `Note #${note.id}`}</button>
       </Link>
     </div>
   );
