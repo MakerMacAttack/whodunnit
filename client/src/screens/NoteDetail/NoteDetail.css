@@ -1,3 +1,14 @@
 .blue {
   background-color: rgb(117, 241, 250);
 }
+
+.suspect-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear {
+  text-decoration: line-through;
+}

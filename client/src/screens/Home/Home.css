@@ -12,3 +12,12 @@
   font-size: 40px;
   font-weight: bold;
 }
+
+.create {
+  background-color: #006400;
+  color: #f04e1f;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  font-weight: bold;
+}

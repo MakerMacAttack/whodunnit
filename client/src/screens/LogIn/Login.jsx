@@ -59,7 +59,7 @@ export default function Login({ setCurrentUser }) {
         <button>Log in!</button>
       </form>
       <Link to="/signup">
-        <button>New User</button>
+        <button className="create">New User</button>
       </Link>
     </div>
   );
