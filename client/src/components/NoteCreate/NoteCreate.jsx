@@ -20,7 +20,9 @@ export default function NoteCreate({ trigger, currentUser }) {
   }
   return (
     <div>
-      <button onClick={handleClick}>New note</button>
+      <button className="create" onClick={handleClick}>
+        New note
+      </button>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Notebook({ notes, trigger, currentUser }) {
   }, []);
 
   return (
-    <div>
+    <div id="notebook">
       {notes.map((note, idx) => (
         <Note key={idx} note={note} />
       ))}

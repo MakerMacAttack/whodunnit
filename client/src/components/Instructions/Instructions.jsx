@@ -31,9 +31,9 @@ const Instructions = ({ isShowing, hide }) =>
                 murder! It is your job to solve this crime.
               </p>
               <p>
-                Inspect the body to learn what type of weapon it was. Each
-                possible weapon has two sets of fingerprints on it, however, so
-                you'll still have to find the killer.
+                Inspect the body to learn what type of weapon it was. However
+                there are two weapons matching each description, so you'll still
+                need to narrow down which suspect has an airtight alibi.
               </p>
               <p>
                 Alibis are like butt-holes; everyone has one and most of them
