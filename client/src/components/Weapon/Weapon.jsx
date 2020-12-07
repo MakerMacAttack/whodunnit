@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./WeaponSize.css";
+import "./Weapon.css";
 
-const WeaponDetail = ({ isShowing, hide, quality }) =>
+const WeaponDetail = ({ isShowing, hide, quality, options }) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -28,7 +28,7 @@ const WeaponDetail = ({ isShowing, hide, quality }) =>
               </div>
               <p>
                 The wound indicates that the weapon must have been{" "}
-                {quality ? "large" : "small"}.
+                {quality ? options[1] : options[2]}.
               </p>
             </div>
           </div>

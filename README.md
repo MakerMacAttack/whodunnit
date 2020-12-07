@@ -190,7 +190,26 @@ Come up with some way for players to lose, like a time limit. Also some challeng
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+```
+export default function WeaponSizeCheck({ quality, options }) {
+  const { isShowing, toggle } = useModal();
+  return (
+    <div>
+      <Weapon
+        isShowing={isShowing}
+        hide={toggle}
+        quality={quality}
+        options={options}
+      />
+      <button className="home-button" onClick={toggle}>
+        Check {options[0]} of wound.
+      </button>
+    </div>
+  );
+}
+```
+
+I think this is an elegant way to handle checking two different properties.
 
 ## Code Issues & Resolutions
 

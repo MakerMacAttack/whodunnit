@@ -18,7 +18,3 @@ export default function Notebook({ notes, trigger, currentUser }) {
     </div>
   );
 }
-
-// notes.length === 0 ? (
-// <h1>Notebook Loading...</h1>
-// ) :

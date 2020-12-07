@@ -30,7 +30,11 @@ export default function SignUp({ setCurrentUser }) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleRegister(formData);
+        try {
+          handleRegister(formData);
+        } catch (error) {
+          console.log("error type: ", typeof error);
+        }
       }}
     >
       <h3>Register</h3>
@@ -46,7 +50,9 @@ export default function SignUp({ setCurrentUser }) {
       </label>
       <br />
       <label>
-        Password:
+        <span>Password:</span>
+        <br />
+        <span id="password">(password must be min 6 characters)</span>
         <br />
         <input
           type="password"
