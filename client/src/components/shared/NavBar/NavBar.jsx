@@ -16,15 +16,15 @@ export default function NavBar({ currentUser, setCurrentUser, toggle }) {
   return (
     <div id="navbar">
       <div id="head-button-box">
-        <Link to={currentUser === null ? "/login" : "/"}>
-          <button className="header-button">Home</button>
-        </Link>
+        <button className="header-button">
+          <Link to={currentUser === null ? "/login" : "/"}>Home</Link>
+        </button>
         <button className="header-button" onClick={toggle}>
           Instructions
         </button>
-        <Link to={"/notes"}>
-          <button className="header-button">Notebook</button>
-        </Link>
+        <button className="header-button">
+          <Link to={"/notes"}>Notebook</Link>
+        </button>
         <button className="header-button" onClick={handleLogout}>
           Log out
         </button>
