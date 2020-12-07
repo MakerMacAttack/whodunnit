@@ -1,15 +1,47 @@
 #navbar {
   position: fixed;
   top: 0;
+  width: 100vw;
+  height: 7vh;
+  background-color: #5c3f78;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  margin-left: 5vw;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  justify-content: center;
 }
 
-#navbar > button {
+#head-button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh;
+  width: 90vw;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-button {
+  color: #f04e1f;
+}
+
+/* #navbar > button {
   min-width: 75px;
+  margin: 5px;
+} */
+
+@media screen and (min-width: 400px) {
+  .header-button {
+    font-size: 20px;
+  }
+
+  #head-button-box {
+    max-width: 75vw;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #head-button-box {
+    max-width: 800px;
+  }
 }

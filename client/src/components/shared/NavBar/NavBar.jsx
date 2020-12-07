@@ -15,18 +15,20 @@ export default function NavBar({ currentUser, setCurrentUser, toggle }) {
 
   return (
     <div id="navbar">
-      <Link to={currentUser === null ? "/login" : "/"}>
-        <button>Home</button>
-      </Link>
-      <button className="button-default" onClick={toggle}>
-        Instructions
-      </button>
-      <Link to={"/notes"}>
-        <button>Notebook</button>
-      </Link>
-      <button className="button-default" onClick={handleLogout}>
-        Log out
-      </button>
+      <div id="head-button-box">
+        <Link to={currentUser === null ? "/login" : "/"}>
+          <button className="header-button">Home</button>
+        </Link>
+        <button className="header-button" onClick={toggle}>
+          Instructions
+        </button>
+        <Link to={"/notes"}>
+          <button className="header-button">Notebook</button>
+        </Link>
+        <button className="header-button" onClick={handleLogout}>
+          Log out
+        </button>
+      </div>
     </div>
   );
 }

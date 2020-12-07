@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { destroyNote, putNote } from "../../services/notes";
 import "./NoteDetail.css";
 
-export default function NoteDetail({ notes, trigger }) {
+export default function NoteDetail({ notes, trigger, suspects }) {
   const [thisNote, setThisNote] = useState(null);
   const { id } = useParams();
   const history = useHistory();
@@ -11,7 +11,7 @@ export default function NoteDetail({ notes, trigger }) {
   async function handleDelete() {
     await destroyNote(id);
     trigger((prevState) => !prevState);
-    history.push("/notes");
+    history.push("/notes#notebook");
   }
 
   useEffect(() => {
@@ -40,9 +40,13 @@ export default function NoteDetail({ notes, trigger }) {
     }
   }
 
+  function launchTrigger() {
+    trigger((prevState) => !prevState);
+  }
+
   useEffect(() => {
     editNote();
-    trigger();
+    launchTrigger();
     // eslint-disable-next-line
   }, [thisNote]);
 
@@ -50,141 +54,184 @@ export default function NoteDetail({ notes, trigger }) {
     <h1>Loading...</h1>
   ) : (
     <div>
-      <p>Weapons Size:</p>
-      <button
-        className={thisNote.weapon_large === 1 ? "blue" : "grey"}
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            weapon_large: prevState.weapon_large === 1 ? 0 : 1,
-          }))
-        }
-      >
-        Large
+      <div id="weapon-box">
+        <div className="suspect-line">
+          <p>Weapons Size:</p>
+          <button
+            className={thisNote.weapon_large === 1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_large: prevState.weapon_large === 1 ? 0 : 1,
+              }))
+            }
+          >
+            Large
+          </button>
+          <button
+            className={thisNote.weapon_large === -1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_large: prevState.weapon_large === -1 ? 0 : -1,
+              }))
+            }
+          >
+            Small
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p>Weapon Type:</p>
+          <button
+            className={thisNote.weapon_sharp === 1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_sharp: prevState.weapon_sharp === 1 ? 0 : 1,
+              }))
+            }
+          >
+            Sharp
+          </button>
+          <button
+            className={thisNote.weapon_sharp === -1 ? "blue" : "grey"}
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                weapon_sharp: prevState.weapon_sharp === -1 ? 0 : -1,
+              }))
+            }
+          >
+            Blunt
+          </button>
+        </div>
+      </div>
+      {/* Find a way to make the below a map */}
+      <div id="suspect-list">
+        <div className="suspect-line">
+          <p className={thisNote.suspect1_clear ? "clear" : "sus"}>
+            {suspects[0].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect1_clear: !prevState.suspect1_clear,
+              }))
+            }
+          >
+            {thisNote.suspect1_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect2_clear ? "clear" : "sus"}>
+            {suspects[1].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect2_clear: !prevState.suspect2_clear,
+              }))
+            }
+          >
+            {thisNote.suspect2_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect3_clear ? "clear" : "sus"}>
+            {suspects[2].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect3_clear: !prevState.suspect3_clear,
+              }))
+            }
+          >
+            {thisNote.suspect3_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect4_clear ? "clear" : "sus"}>
+            {suspects[3].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect4_clear: !prevState.suspect4_clear,
+              }))
+            }
+          >
+            {thisNote.suspect4_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect5_clear ? "clear" : "sus"}>
+            {suspects[4].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect5_clear: !prevState.suspect5_clear,
+              }))
+            }
+          >
+            {thisNote.suspect5_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect6_clear ? "clear" : "sus"}>
+            {suspects[5].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect6_clear: !prevState.suspect6_clear,
+              }))
+            }
+          >
+            {thisNote.suspect6_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect7_clear ? "clear" : "sus"}>
+            {suspects[6].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect7_clear: !prevState.suspect7_clear,
+              }))
+            }
+          >
+            {thisNote.suspect7_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+        <div className="suspect-line">
+          <p className={thisNote.suspect8_clear ? "clear" : "sus"}>
+            {suspects[7].name}:
+          </p>
+          <button
+            onClick={() =>
+              setThisNote((prevState) => ({
+                ...prevState,
+                suspect8_clear: !prevState.suspect8_clear,
+              }))
+            }
+          >
+            {thisNote.suspect8_clear ? "Cleared" : "Kinda Sus"}
+          </button>
+        </div>
+      </div>
+      <button className="create" onClick={handleDelete}>
+        Delete Note
       </button>
-      <button
-        className={thisNote.weapon_large === -1 ? "blue" : "grey"}
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            weapon_large: prevState.weapon_large === -1 ? 0 : -1,
-          }))
-        }
-      >
-        Small
-      </button>
-      <p>Weapon Type:</p>
-      <button
-        className={thisNote.weapon_sharp === 1 ? "blue" : "grey"}
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            weapon_sharp: prevState.weapon_sharp === 1 ? 0 : 1,
-          }))
-        }
-      >
-        Sharp
-      </button>
-      <button
-        className={thisNote.weapon_sharp === -1 ? "blue" : "grey"}
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            weapon_sharp: prevState.weapon_sharp === -1 ? 0 : -1,
-          }))
-        }
-      >
-        Blunt
-      </button>
-      <p>Suspect 1:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect1_clear: !prevState.suspect1_clear,
-          }))
-        }
-      >
-        {thisNote.suspect1_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 2:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect2_clear: !prevState.suspect2_clear,
-          }))
-        }
-      >
-        {thisNote.suspect2_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 3:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect3_clear: !prevState.suspect3_clear,
-          }))
-        }
-      >
-        {thisNote.suspect3_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 4:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect4_clear: !prevState.suspect4_clear,
-          }))
-        }
-      >
-        {thisNote.suspect4_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 5:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect5_clear: !prevState.suspect5_clear,
-          }))
-        }
-      >
-        {thisNote.suspect5_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 6:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect6_clear: !prevState.suspect6_clear,
-          }))
-        }
-      >
-        {thisNote.suspect6_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 7:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect7_clear: !prevState.suspect7_clear,
-          }))
-        }
-      >
-        {thisNote.suspect7_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <p>Suspect 8:</p>
-      <button
-        onClick={() =>
-          setThisNote((prevState) => ({
-            ...prevState,
-            suspect8_clear: !prevState.suspect8_clear,
-          }))
-        }
-      >
-        {thisNote.suspect8_clear ? "Cleared" : "Kinda Sus"}
-      </button>
-      <button onClick={handleDelete}>Delete Note</button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./WeaponDetail.css";
+import "./WeaponSize.css";
 
 const WeaponDetail = ({ isShowing, hide, quality }) =>
   isShowing
@@ -27,7 +27,8 @@ const WeaponDetail = ({ isShowing, hide, quality }) =>
                 </button>
               </div>
               <p>
-                The wound indicates that the weapon must have been {quality}
+                The wound indicates that the weapon must have been{" "}
+                {quality ? "large" : "small"}.
               </p>
             </div>
           </div>

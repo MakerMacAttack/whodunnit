@@ -38,6 +38,7 @@ export default function Login({ setCurrentUser }) {
         <h3>Login</h3>
         <label>
           Username:
+          <br />
           <input
             type="text"
             name="username"
@@ -48,6 +49,7 @@ export default function Login({ setCurrentUser }) {
         <br />
         <label>
           Password:
+          <br />
           <input
             type="password"
             name="password"
@@ -56,10 +58,10 @@ export default function Login({ setCurrentUser }) {
           />
         </label>
         <br />
-        <button>Log in!</button>
+        <button className="user-button">Log in!</button>
       </form>
       <Link to="/signup">
-        <button>New User</button>
+        <button className="create">New User</button>
       </Link>
     </div>
   );

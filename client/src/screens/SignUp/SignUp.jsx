@@ -36,6 +36,7 @@ export default function SignUp({ setCurrentUser }) {
       <h3>Register</h3>
       <label>
         Username:
+        <br />
         <input
           type="text"
           name="username"
@@ -46,6 +47,7 @@ export default function SignUp({ setCurrentUser }) {
       <br />
       <label>
         Password:
+        <br />
         <input
           type="password"
           name="password"
@@ -54,7 +56,7 @@ export default function SignUp({ setCurrentUser }) {
         />
       </label>
       <br />
-      <button>Submit</button>
+      <button className="user-button">Submit</button>
     </form>
   );
 }

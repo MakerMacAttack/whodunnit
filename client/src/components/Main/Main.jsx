@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import useModal from "../../services/useModal";
 import { verifyUser } from "../../services/auth";
+import { getAllSuspects } from "../../services/suspects";
 import Instructions from "../../components/Instructions/Instructions";
 import Footer from "./../shared/Footer/Footer";
 import Forensics from "./../../screens/Forensics/Forensics";
@@ -14,9 +15,14 @@ import SignUp from "./../../screens/SignUp/SignUp";
 import SuspectsContainer from "../SuspectsContainer/SuspectsContainer";
 import Win from "./../../screens/Win/Win";
 import "./Main.css";
+import { assignKiller } from "../../services/game";
 
 export default function Main(props) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentGame, setCurrentGame] = useState([]);
+  const [suspects, setSuspects] = useState([]);
+  const [guilty, setGuilty] = useState(null);
+
   const { isShowing, toggle } = useModal();
   const history = useHistory();
 
@@ -32,6 +38,34 @@ export default function Main(props) {
     // eslint-disable-next-line
   }, []);
 
+  function setKiller(killer) {
+    setGuilty(killer);
+  }
+
+  useEffect(() => {
+    if (suspects.length > 0) {
+      const killer = assignKiller(suspects);
+      setKiller(killer); // See if you can condense this to just setGuilty
+      if (killer.alibi.airtight) {
+        suspects.forEach(
+          (suspect) => (suspect.alibi.airtight = !suspect.alibi.airtight)
+        );
+      }
+      setCurrentGame(suspects);
+    }
+    // eslint-disable-next-line
+  }, [suspects]);
+
+  async function getSuspects() {
+    const lineup = await getAllSuspects();
+    setSuspects(lineup);
+  }
+
+  useEffect(() => {
+    getSuspects();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
       <NavBar
@@ -39,7 +73,7 @@ export default function Main(props) {
         setCurrentUser={setCurrentUser}
         toggle={toggle}
       />
-      <body>
+      <main>
         <Instructions isShowing={isShowing} hide={toggle} />
         <Switch>
           <Route path="/signup">
@@ -49,21 +83,21 @@ export default function Main(props) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/forensics">
-            <Forensics />
+            <Forensics guilty={guilty} />
           </Route>
           <Route path="/lose">
-            <Lose />
+            <Lose getSuspects={getSuspects} />
           </Route>
           <Route path="/win">
-            <Win />
+            <Win getSuspects={getSuspects} />
           </Route>
           <Route exact path="/">
             <Home />
           </Route>
         </Switch>
-        <NotesContainer currentUser={currentUser} />
-        <SuspectsContainer />
-      </body>
+        <NotesContainer suspects={suspects} currentUser={currentUser} />
+        <SuspectsContainer currentGame={currentGame} guilty={guilty} />
+      </main>
       <Footer />
     </div>
   );
