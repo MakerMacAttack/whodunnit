@@ -1,4 +1,9 @@
 main {
   padding-top: 80px;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
+  font-weight: bold;
+}
+
+.user-button {
+  margin: 5px;
 }

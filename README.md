@@ -18,8 +18,9 @@
 
 ## Overview
 
-**Whodunnit** is a simple mystery game. Users will reveal clues and use them to solve the crime. The backend contains the clues, suspects, alibis, and weapons, and runs on Ruby on Rails, hosted by Heroku. The front end is a react app hosted on Netlify. 
+**Whodunnit** is a simple mystery game. Users will reveal clues and use them to solve the crime. The backend contains the clues, suspects, alibis, and weapons, and runs on Ruby on Rails, hosted by Heroku. The front end is a react app hosted on Netlify.
 
+[WhoDunnit?](http://lying-daughter.surge.sh/)
 
 <br>
 
@@ -40,13 +41,13 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 ### Libraries and Dependencies
 
-|     Library      | Description                                |
-| :--------------: | :----------------------------------------- |
-|      React       | A JavaScript library for building user interfaces |
+|     Library      | Description                                                                  |
+| :--------------: | :--------------------------------------------------------------------------- |
+|      React       | A JavaScript library for building user interfaces                            |
 |   React Router   | A tool that allows you to handle routes in a web app, using dynamic routing. |
-| React SemanticUI | The official React integration for Semantic UI. |
-|     Express      | Fast, unopinionated, minimalist web framework for Node.js |
-|  Express Router  | A class which helps us to create router handlers. |
+| React SemanticUI | The official React integration for Semantic UI.                              |
+|       Ruby       | Fast, unopinionated, minimalist web framework for Node.js                    |
+|  Ruby on Rails   | A class which helps us to create router handlers.                            |
 
 <br>
 
@@ -112,11 +113,11 @@ The **Whodunnit** MVP is a simple game where the user has a list of suspects and
 
 #### Component Tree
 
-![Component Tree](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/whodunnit%20component%20tree.png) 
+![Component Tree](https://raw.githubusercontent.com/MakerMacAttack/whodunnit/master/whodunnit%20component%20tree.png)
 
 #### Component Hierarchy
 
-``` structure
+```structure
 
 src
 |__ assets/
@@ -156,19 +157,18 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Schema              |    L     |     3 hrs      |     TBD       |     TBD     |
-| Models              |    H     |     3 hrs      |     TBD       |     TBD     |
-| Controllers         |    H     |     6 hrs      |     TBD       |     TBD     |
-| Backend Services    |    L     |     3 hrs      |     TBD       |     TBD     |
-| Screens             |    H     |     3 hrs      |     TBD       |     TBD     |
-| Components          |    M     |     6 hrs      |     TBD       |     TBD     |
-| Routes              |    L     |     3 hrs      |     TBD       |     TBD     |
-| Create CRUD Actions |    H     |     3 hrs      |     TBD       |     TBD     |
-| Styling             |    L     |     6 hrs      |     TBD       |     TBD     |
-| Post-MVP            |    L     |     3 hrs      |     TBD       |     TBD     |
-| Advanced Styleing   |    H     |     3 hrs      |     TBD       |     TBD     |
-| TOTAL               |          |     42 hrs     |     TBD       |     TBD     |
-
+| Schema              |    L     |     3 hrs      |      TBD      |     TBD     |
+| Models              |    H     |     3 hrs      |      TBD      |     TBD     |
+| Controllers         |    H     |     6 hrs      |      TBD      |     TBD     |
+| Backend Services    |    L     |     3 hrs      |      TBD      |     TBD     |
+| Screens             |    H     |     3 hrs      |      TBD      |     TBD     |
+| Components          |    M     |     6 hrs      |      TBD      |     TBD     |
+| Routes              |    L     |     3 hrs      |      TBD      |     TBD     |
+| Create CRUD Actions |    H     |     3 hrs      |      TBD      |     TBD     |
+| Styling             |    L     |     6 hrs      |      TBD      |     TBD     |
+| Post-MVP            |    L     |     3 hrs      |      TBD      |     TBD     |
+| Advanced Styleing   |    H     |     3 hrs      |      TBD      |     TBD     |
+| TOTAL               |          |     42 hrs     |      TBD      |     TBD     |
 
 <br>
 
@@ -180,13 +180,13 @@ src
 
 <br>
 
-***
+---
 
 ## Post-MVP
 
 Come up with some way for players to lose, like a time limit. Also some challenge before they get clues.
 
-***
+---
 
 ## Code Showcase
 

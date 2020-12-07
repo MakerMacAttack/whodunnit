@@ -17,15 +17,17 @@ export default function SuspectDetail({ currentGame, guilty }) {
       </Link>
       <p>Name: {subject.name}</p>
       <p>Weapon: {subject.weapon.name}</p>
-      <p>Alibi: {subject.alibi.content}</p>
-      <button onClick={toggle}>Check Alibi</button>
-      <AlibiCheck
-        isShowing={isShowing}
-        hide={toggle}
-        check={subject.alibi.airtight}
-      />
+      <div id="alibox">
+        <p>Alibi: {subject.alibi.content}</p>
+        <button onClick={toggle}>Check Alibi</button>
+        <AlibiCheck
+          isShowing={isShowing}
+          hide={toggle}
+          check={subject.alibi.airtight}
+        />
+      </div>
       <Link to={subject == guilty ? "/win" : "/lose"}>
-        <button>ACCUSE!</button>
+        <button className="create">ACCUSE!</button>
       </Link>
     </div>
   );

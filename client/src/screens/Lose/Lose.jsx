@@ -15,7 +15,9 @@ export default function Lose({ getSuspects }) {
       <h1>You lose!</h1>
       <p>Looks like it's a great day to be a killer.</p>
       <p>Try your luck again?</p>
-      <button onClick={handleReset}>Play Again</button>
+      <button className="create" onClick={handleReset}>
+        Play Again
+      </button>
     </div>
   );
 }

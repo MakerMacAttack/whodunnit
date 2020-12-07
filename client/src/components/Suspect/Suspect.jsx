@@ -6,7 +6,7 @@ export default function Suspect({ suspect }) {
   return (
     <div>
       <Link to={`/suspects/${suspect.id}`}>
-        <button>{suspect.name}</button>
+        <button className="suspect-button">{suspect.name}</button>
       </Link>
     </div>
   );
