@@ -20,7 +20,7 @@
 
 **Whodunnit** is a simple mystery game. Users will reveal clues and use them to solve the crime. The backend contains the clues, suspects, alibis, and weapons, and runs on Ruby on Rails, hosted by Heroku. The front end is a react app hosted on Netlify.
 
-[WhoDunnit?](http://lying-daughter.surge.sh/)
+[WhoDunnit?](http://whodunnit.surge.sh/)
 
 <br>
 
